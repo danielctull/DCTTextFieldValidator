@@ -75,7 +75,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
-	if (textField.returnKeyType == returnKeyType) {
+	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text)) {
 		if (self.returnPressedHandler) self.returnPressedHandler();
 		return YES;
 	}
