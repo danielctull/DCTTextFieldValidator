@@ -7,9 +7,16 @@
 //
 
 #import "DCTTextFieldValidatorViewController.h"
+#import "DCTTextFieldValidator.h"
 
 @implementation DCTTextFieldValidatorViewController
 
 @synthesize validator;
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	self.validator.actionControl = [[UIBarButtonItem alloc] init];
+}
 
 @end
