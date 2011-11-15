@@ -22,13 +22,13 @@
 		24ECB9B21472C10A0020A60B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24ECB9B41472C10A0020A60B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24ECB9B61472C10A0020A60B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		24ECB9BA1472C10A0020A60B /* DCTTextFieldValidator-Info.plist */ = {isa = PBXFileReference; path = "DCTTextFieldValidator-Info.plist"; sourceTree = "<group>"; };
+		24ECB9BA1472C10A0020A60B /* DCTTextFieldValidator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTextFieldValidator-Info.plist"; sourceTree = "<group>"; };
 		24ECB9BC1472C10A0020A60B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24ECB9BE1472C10A0020A60B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		24ECB9C01472C10A0020A60B /* DCTTextFieldValidator-Prefix.pch */ = {isa = PBXFileReference; path = "DCTTextFieldValidator-Prefix.pch"; sourceTree = "<group>"; };
-		24ECB9C11472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.h */ = {isa = PBXFileReference; path = DCTTextFieldValidatorAppDelegate.h; sourceTree = "<group>"; };
+		24ECB9C01472C10A0020A60B /* DCTTextFieldValidator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTTextFieldValidator-Prefix.pch"; sourceTree = "<group>"; };
+		24ECB9C11472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidatorAppDelegate.h; sourceTree = "<group>"; };
 		24ECB9C21472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorAppDelegate.m; sourceTree = "<group>"; };
-		24ECB9C41472C10A0020A60B /* DCTTextFieldValidatorViewController.h */ = {isa = PBXFileReference; path = DCTTextFieldValidatorViewController.h; sourceTree = "<group>"; };
+		24ECB9C41472C10A0020A60B /* DCTTextFieldValidatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidatorViewController.h; sourceTree = "<group>"; };
 		24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorViewController.m; sourceTree = "<group>"; };
 		24ECB9C81472C10A0020A60B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DCTTextFieldValidatorViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
