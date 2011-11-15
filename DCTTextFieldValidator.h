@@ -13,6 +13,8 @@
  of DCTTextFieldValidator.h, a fork and pull request on GitHub would also be most appreciated.
  */
 @protocol DCTTextFieldValidatorEnabledObject <NSObject>
+/** Conforming classes must have an enabled property.
+ */
 @property(nonatomic) BOOL enabled;
 @end
 
