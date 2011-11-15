@@ -50,7 +50,7 @@
 		24ECB9A31472C10A0020A60B = {
 			isa = PBXGroup;
 			children = (
-				24ECB9B81472C10A0020A60B /* DCTTextFieldValidator */,
+				24ECB9B81472C10A0020A60B /* DCTTextFieldValidatorDemo */,
 				24ECB9B11472C10A0020A60B /* Frameworks */,
 				24ECB9AF1472C10A0020A60B /* Products */,
 			);
@@ -74,7 +74,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		24ECB9B81472C10A0020A60B /* DCTTextFieldValidator */ = {
+		24ECB9B81472C10A0020A60B /* DCTTextFieldValidatorDemo */ = {
 			isa = PBXGroup;
 			children = (
 				24ECB9C11472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.h */,
@@ -84,7 +84,7 @@
 				24ECB9C71472C10A0020A60B /* DCTTextFieldValidatorViewController.xib */,
 				24ECB9B91472C10A0020A60B /* Supporting Files */,
 			);
-			path = DCTTextFieldValidator;
+			path = DCTTextFieldValidatorDemo;
 			sourceTree = "<group>";
 		};
 		24ECB9B91472C10A0020A60B /* Supporting Files */ = {
@@ -238,8 +238,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTextFieldValidator/DCTTextFieldValidator-Prefix.pch";
-				INFOPLIST_FILE = "DCTTextFieldValidator/DCTTextFieldValidator-Info.plist";
+				GCC_PREFIX_HEADER = "DCTTextFieldValidatorDemo/DCTTextFieldValidator-Prefix.pch";
+				INFOPLIST_FILE = "DCTTextFieldValidatorDemo/DCTTextFieldValidator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -249,8 +249,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTextFieldValidator/DCTTextFieldValidator-Prefix.pch";
-				INFOPLIST_FILE = "DCTTextFieldValidator/DCTTextFieldValidator-Info.plist";
+				GCC_PREFIX_HEADER = "DCTTextFieldValidatorDemo/DCTTextFieldValidator-Prefix.pch";
+				INFOPLIST_FILE = "DCTTextFieldValidatorDemo/DCTTextFieldValidator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
