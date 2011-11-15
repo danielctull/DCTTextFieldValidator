@@ -27,7 +27,7 @@ typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
 
 @property (nonatomic, copy) DCTTextFieldValidatorValidationBlock validator;
 
-@property (nonatomic, strong) IBOutlet id<DCTTextFieldValidatorEnabledObject> actionControl;
+@property (nonatomic, strong) IBOutlet id<DCTTextFieldValidatorEnabledObject> enabledObject;
 
 @end
 

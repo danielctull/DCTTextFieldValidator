@@ -20,7 +20,7 @@
 @synthesize returnPressedHandler;
 @synthesize validationChangeHandler;
 @synthesize validator;
-@synthesize actionControl;
+@synthesize enabledObject;
 
 - (id)init {
     
@@ -58,16 +58,16 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 	
-	if (!self.validationChangeHandler && !self.actionControl) return YES;
+	if (!self.validationChangeHandler && !self.enabledObject) return YES;
 	
 	NSString *s = [textField.text stringByReplacingCharactersInRange:range withString:string];
 	
 	if (textField.returnKeyType == returnKeyType && self.validator(textField, s)) {
 		if (self.validationChangeHandler) self.validationChangeHandler(YES);
-		self.actionControl.enabled = YES;
+		self.enabledObject.enabled = YES;
 	} else {
 		if (self.validationChangeHandler) self.validationChangeHandler(NO);
-		self.actionControl.enabled = NO;
+		self.enabledObject.enabled = NO;
 	}
 	
 	return YES;
