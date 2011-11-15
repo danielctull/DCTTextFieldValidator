@@ -11,4 +11,5 @@
 
 @interface DCTTextFieldValidatorViewController : UIViewController
 @property (nonatomic, strong) IBOutlet DCTTextFieldValidator *validator;
+- (IBAction)login:(id)sender;
 @end
