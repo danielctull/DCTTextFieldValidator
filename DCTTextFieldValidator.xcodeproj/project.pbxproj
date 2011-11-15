@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24ECB9B31472C10A0020A60B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB9B21472C10A0020A60B /* UIKit.framework */; };
+		24ECB9B51472C10A0020A60B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB9B41472C10A0020A60B /* Foundation.framework */; };
+		24ECB9B71472C10A0020A60B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB9B61472C10A0020A60B /* CoreGraphics.framework */; };
+		24ECB9BD1472C10A0020A60B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24ECB9BB1472C10A0020A60B /* InfoPlist.strings */; };
+		24ECB9BF1472C10A0020A60B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9BE1472C10A0020A60B /* main.m */; };
+		24ECB9C31472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9C21472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m */; };
+		24ECB9C61472C10A0020A60B /* DCTTextFieldValidatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */; };
+		24ECB9C91472C10A0020A60B /* DCTTextFieldValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24ECB9C71472C10A0020A60B /* DCTTextFieldValidatorViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24ECB9AE1472C10A0020A60B /* DCTTextFieldValidator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTTextFieldValidator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24ECB9B21472C10A0020A60B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		24ECB9B41472C10A0020A60B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		24ECB9B61472C10A0020A60B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		24ECB9BA1472C10A0020A60B /* DCTTextFieldValidator-Info.plist */ = {isa = PBXFileReference; path = "DCTTextFieldValidator-Info.plist"; sourceTree = "<group>"; };
+		24ECB9BC1472C10A0020A60B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24ECB9BE1472C10A0020A60B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24ECB9C01472C10A0020A60B /* DCTTextFieldValidator-Prefix.pch */ = {isa = PBXFileReference; path = "DCTTextFieldValidator-Prefix.pch"; sourceTree = "<group>"; };
+		24ECB9C11472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.h */ = {isa = PBXFileReference; path = DCTTextFieldValidatorAppDelegate.h; sourceTree = "<group>"; };
+		24ECB9C21472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorAppDelegate.m; sourceTree = "<group>"; };
+		24ECB9C41472C10A0020A60B /* DCTTextFieldValidatorViewController.h */ = {isa = PBXFileReference; path = DCTTextFieldValidatorViewController.h; sourceTree = "<group>"; };
+		24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorViewController.m; sourceTree = "<group>"; };
+		24ECB9C81472C10A0020A60B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DCTTextFieldValidatorViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24ECB9AB1472C10A0020A60B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24ECB9B31472C10A0020A60B /* UIKit.framework in Frameworks */,
+				24ECB9B51472C10A0020A60B /* Foundation.framework in Frameworks */,
+				24ECB9B71472C10A0020A60B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24ECB9A31472C10A0020A60B = {
+			isa = PBXGroup;
+			children = (
+				24ECB9B81472C10A0020A60B /* DCTTextFieldValidator */,
+				24ECB9B11472C10A0020A60B /* Frameworks */,
+				24ECB9AF1472C10A0020A60B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24ECB9AF1472C10A0020A60B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24ECB9AE1472C10A0020A60B /* DCTTextFieldValidator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24ECB9B11472C10A0020A60B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24ECB9B21472C10A0020A60B /* UIKit.framework */,
+				24ECB9B41472C10A0020A60B /* Foundation.framework */,
+				24ECB9B61472C10A0020A60B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24ECB9B81472C10A0020A60B /* DCTTextFieldValidator */ = {
+			isa = PBXGroup;
+			children = (
+				24ECB9C11472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.h */,
+				24ECB9C21472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m */,
+				24ECB9C41472C10A0020A60B /* DCTTextFieldValidatorViewController.h */,
+				24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */,
+				24ECB9C71472C10A0020A60B /* DCTTextFieldValidatorViewController.xib */,
+				24ECB9B91472C10A0020A60B /* Supporting Files */,
+			);
+			path = DCTTextFieldValidator;
+			sourceTree = "<group>";
+		};
+		24ECB9B91472C10A0020A60B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24ECB9BA1472C10A0020A60B /* DCTTextFieldValidator-Info.plist */,
+				24ECB9BB1472C10A0020A60B /* InfoPlist.strings */,
+				24ECB9BE1472C10A0020A60B /* main.m */,
+				24ECB9C01472C10A0020A60B /* DCTTextFieldValidator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24ECB9AD1472C10A0020A60B /* DCTTextFieldValidator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24ECB9CC1472C10A0020A60B /* Build configuration list for PBXNativeTarget "DCTTextFieldValidator" */;
+			buildPhases = (
+				24ECB9AA1472C10A0020A60B /* Sources */,
+				24ECB9AB1472C10A0020A60B /* Frameworks */,
+				24ECB9AC1472C10A0020A60B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCTTextFieldValidator;
+			productName = DCTTextFieldValidator;
+			productReference = 24ECB9AE1472C10A0020A60B /* DCTTextFieldValidator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24ECB9A51472C10A0020A60B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Daniel Tull";
+			};
+			buildConfigurationList = 24ECB9A81472C10A0020A60B /* Build configuration list for PBXProject "DCTTextFieldValidator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 24ECB9A31472C10A0020A60B;
+			productRefGroup = 24ECB9AF1472C10A0020A60B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24ECB9AD1472C10A0020A60B /* DCTTextFieldValidator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24ECB9AC1472C10A0020A60B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24ECB9BD1472C10A0020A60B /* InfoPlist.strings in Resources */,
+				24ECB9C91472C10A0020A60B /* DCTTextFieldValidatorViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24ECB9AA1472C10A0020A60B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24ECB9BF1472C10A0020A60B /* main.m in Sources */,
+				24ECB9C31472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m in Sources */,
+				24ECB9C61472C10A0020A60B /* DCTTextFieldValidatorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		24ECB9BB1472C10A0020A60B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24ECB9BC1472C10A0020A60B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		24ECB9C71472C10A0020A60B /* DCTTextFieldValidatorViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24ECB9C81472C10A0020A60B /* en */,
+			);
+			name = DCTTextFieldValidatorViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24ECB9CA1472C10A0020A60B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		24ECB9CB1472C10A0020A60B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24ECB9CD1472C10A0020A60B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DCTTextFieldValidator/DCTTextFieldValidator-Prefix.pch";
+				INFOPLIST_FILE = "DCTTextFieldValidator/DCTTextFieldValidator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		24ECB9CE1472C10A0020A60B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DCTTextFieldValidator/DCTTextFieldValidator-Prefix.pch";
+				INFOPLIST_FILE = "DCTTextFieldValidator/DCTTextFieldValidator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24ECB9A81472C10A0020A60B /* Build configuration list for PBXProject "DCTTextFieldValidator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24ECB9CA1472C10A0020A60B /* Debug */,
+				24ECB9CB1472C10A0020A60B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24ECB9CC1472C10A0020A60B /* Build configuration list for PBXNativeTarget "DCTTextFieldValidator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24ECB9CD1472C10A0020A60B /* Debug */,
+				24ECB9CE1472C10A0020A60B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24ECB9A51472C10A0020A60B /* Project object */;
+}
