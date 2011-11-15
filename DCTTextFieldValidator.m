@@ -17,7 +17,7 @@
 }
 
 @synthesize textFields;
-@synthesize returnPressedHandler;
+@synthesize returnHandler;
 @synthesize validationChangeHandler;
 @synthesize validator;
 @synthesize enabledObject;
@@ -76,7 +76,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
 	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text)) {
-		if (self.returnPressedHandler) self.returnPressedHandler();
+		if (self.returnHandler) self.returnHandler();
 		return YES;
 	}
 		
