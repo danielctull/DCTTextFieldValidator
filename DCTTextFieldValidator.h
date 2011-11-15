@@ -13,14 +13,14 @@
 @end
 
 typedef void (^DCTTextFieldValidatorReturnPressedBlock) ();
-typedef void (^DCTTextFieldValidatorEnableButtonBlock) (BOOL enabled);
+typedef void (^DCTTextFieldValidatorEnableBlock) (BOOL enabled);
 
 @interface DCTTextFieldValidator : NSObject <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
 
 @property (nonatomic, strong) DCTTextFieldValidatorReturnPressedBlock returnPressedHandler;
-@property (nonatomic, strong) DCTTextFieldValidatorEnableButtonBlock enableButtonHandler;
+@property (nonatomic, strong) DCTTextFieldValidatorEnableBlock enableButtonHandler;
 
 @property (nonatomic, strong) IBOutlet id<DCTTextFieldValidatorEnabledObject> actionControl;
 
