@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   s.summary  = 'Validates an array of UITextFields before allowing an action to take place.'
   s.homepage = 'https://github.com/danielctull/DCTTextFieldValidator'
   s.author   = { 'Daniel Tull' => 'dt@danieltull.co.uk' }
-  s.source   = { :git => 'http://example.com/DCTTextFieldValidator.git', :tag => '1.0' }
-  s.description = 'An optional longer description of DCTTextFieldValidator.'
+  s.source   = { :git => 'https://github.com/danielctull/DCTTextFieldValidator', :tag => '1.0' }
+  s.description = 'DCTTextFieldValidator takes an array of UITextFields and switches the return key on the keyboard if the text fields are valid.'
   s.source_files = 'DCTTextFieldValidator.h', 'DCTTextFieldValidator.m'
+  s.requires_arc = true
 end
