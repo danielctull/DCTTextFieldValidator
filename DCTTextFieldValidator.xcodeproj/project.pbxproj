@@ -15,6 +15,7 @@
 		24ECB9C31472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9C21472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m */; };
 		24ECB9C61472C10A0020A60B /* DCTTextFieldValidatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */; };
 		24ECB9C91472C10A0020A60B /* DCTTextFieldValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24ECB9C71472C10A0020A60B /* DCTTextFieldValidatorViewController.xib */; };
+		24ECB9D21472C1BA0020A60B /* DCTTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ECB9D11472C1BA0020A60B /* DCTTextFieldValidator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		24ECB9C41472C10A0020A60B /* DCTTextFieldValidatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidatorViewController.h; sourceTree = "<group>"; };
 		24ECB9C51472C10A0020A60B /* DCTTextFieldValidatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorViewController.m; sourceTree = "<group>"; };
 		24ECB9C81472C10A0020A60B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DCTTextFieldValidatorViewController.xib; sourceTree = "<group>"; };
+		24ECB9D01472C1BA0020A60B /* DCTTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidator.h; sourceTree = "<group>"; };
+		24ECB9D11472C1BA0020A60B /* DCTTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +53,7 @@
 		24ECB9A31472C10A0020A60B = {
 			isa = PBXGroup;
 			children = (
+				24ECB9CF1472C1BA0020A60B /* DCTTextFieldValidator */,
 				24ECB9B81472C10A0020A60B /* DCTTextFieldValidatorDemo */,
 				24ECB9B11472C10A0020A60B /* Frameworks */,
 				24ECB9AF1472C10A0020A60B /* Products */,
@@ -96,6 +100,15 @@
 				24ECB9C01472C10A0020A60B /* DCTTextFieldValidator-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24ECB9CF1472C1BA0020A60B /* DCTTextFieldValidator */ = {
+			isa = PBXGroup;
+			children = (
+				24ECB9D01472C1BA0020A60B /* DCTTextFieldValidator.h */,
+				24ECB9D11472C1BA0020A60B /* DCTTextFieldValidator.m */,
+			);
+			path = DCTTextFieldValidator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +177,7 @@
 				24ECB9BF1472C10A0020A60B /* main.m in Sources */,
 				24ECB9C31472C10A0020A60B /* DCTTextFieldValidatorAppDelegate.m in Sources */,
 				24ECB9C61472C10A0020A60B /* DCTTextFieldValidatorViewController.m in Sources */,
+				24ECB9D21472C1BA0020A60B /* DCTTextFieldValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

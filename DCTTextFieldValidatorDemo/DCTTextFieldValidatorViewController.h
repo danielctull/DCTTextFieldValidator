@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DCTTextFieldValidator;
 
 @interface DCTTextFieldValidatorViewController : UIViewController
-
+@property (nonatomic, strong) IBOutlet DCTTextFieldValidator *validator;
 @end
