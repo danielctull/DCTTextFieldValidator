@@ -1,0 +1,3 @@
+[submodule "DCTTextFieldValidator"]
+	path = DCTTextFieldValidator
+	url = git://github.com/danielctull/DCTTextFieldValidator.git
