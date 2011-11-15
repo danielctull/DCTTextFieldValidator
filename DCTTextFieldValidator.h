@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#ifndef dcttextfieldvalidator
+#define dcttextfieldvalidator_1_0     10000
+#define dcttextfieldvalidator         dcttextfieldvalidator_1_0
+#endif
+
 /** Used to represent a class which has an enabled property, such as UIControl, UIBarItem, UILabel or
  UIGestureRecognizer. If I've missed one that you wish to use, just add it to the list at the bottom
  of DCTTextFieldValidator.h, a fork and pull request on GitHub would also be most appreciated.
