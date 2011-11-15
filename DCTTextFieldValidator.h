@@ -20,19 +20,4 @@ typedef void (^DCTTextFieldValidatorEnableButtonBlock) (BOOL enabled);
 
 @property (nonatomic, strong) IBOutlet UIControl *actionControl;
 
-- (IBAction)action1:(id)sender;
-- (IBAction)action2:(id)sender;
-- (IBAction)action3:(id)sender;
-- (IBAction)action4:(id)sender;
-- (IBAction)action5:(id)sender;
-- (IBAction)action6:(id)sender;
-- (IBAction)action7:(id)sender;
-- (IBAction)action8:(id)sender;
-- (IBAction)action9:(id)sender;
-- (IBAction)action10:(id)sender;
-- (IBAction)action11:(id)sender;
-- (IBAction)action12:(id)sender;
-- (IBAction)action13:(id)sender;
-- (IBAction)action14:(id)sender;
-
 @end

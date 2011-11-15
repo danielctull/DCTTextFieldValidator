@@ -12,7 +12,9 @@
 - (BOOL)dctInternal_anotherTextFieldIsEmpty:(UITextField *)textField;
 @end
 
-@implementation DCTTextFieldValidator
+@implementation DCTTextFieldValidator {
+	UIReturnKeyType returnKeyType;
+}
 
 @synthesize textFields;
 @synthesize returnPressedHandler;
@@ -23,11 +25,10 @@
 	
 	textFields = tfs;
 	
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-	
 	for (UITextField *textField in self.textFields) {
 		textField.delegate = self;
 		textField.enablesReturnKeyAutomatically = YES;
+		returnKeyType = textField.returnKeyType;
 	}
 }
 
@@ -38,7 +39,7 @@
 	if ([self dctInternal_anotherTextFieldIsEmpty:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
-		textField.returnKeyType = UIReturnKeyGo;
+		textField.returnKeyType = returnKeyType;
 	
 	return YES;
 }
@@ -49,7 +50,7 @@
 	
 	NSString *s = [textField.text stringByReplacingCharactersInRange:range withString:string];
 	
-	if (textField.returnKeyType == UIReturnKeyGo && ![s isEqualToString:@""]) {
+	if (textField.returnKeyType == returnKeyType && ![s isEqualToString:@""]) {
 		if (self.enableButtonHandler) self.enableButtonHandler(YES);
 		self.actionControl.enabled = YES;
 	} else {
@@ -62,9 +63,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-	
-	if (textField.returnKeyType == UIReturnKeyGo) {
+	if (textField.returnKeyType == returnKeyType) {
 		if (self.returnPressedHandler) self.returnPressedHandler();
 		return YES;
 	}
@@ -102,49 +101,6 @@
 	}];
 	
 	return anotherTextFieldIsEmpty;
-}
-
-- (IBAction)action1:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action2:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action3:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action4:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action5:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action6:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action7:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action8:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action9:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action10:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action11:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action12:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action13:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
-}
-- (IBAction)action14:(id)sender {
-	NSLog(@"%@:%@", self, NSStringFromSelector(_cmd));
 }
 
 @end
