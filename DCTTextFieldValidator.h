@@ -12,6 +12,8 @@
 @property(nonatomic) BOOL enabled;
 @end
 
+typedef BOOL (^DCTTextFieldValidatorValidationBlock) (UITextField *textField, NSString *string);
+
 typedef void (^DCTTextFieldValidatorReturnPressedBlock) ();
 typedef void (^DCTTextFieldValidatorEnableBlock) (BOOL enabled);
 
@@ -19,8 +21,9 @@ typedef void (^DCTTextFieldValidatorEnableBlock) (BOOL enabled);
 
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
 
-@property (nonatomic, strong) DCTTextFieldValidatorReturnPressedBlock returnPressedHandler;
-@property (nonatomic, strong) DCTTextFieldValidatorEnableBlock enableButtonHandler;
+@property (nonatomic, copy) DCTTextFieldValidatorReturnPressedBlock returnPressedHandler;
+@property (nonatomic, copy) DCTTextFieldValidatorEnableBlock enableButtonHandler;
+@property (nonatomic, copy) DCTTextFieldValidatorValidationBlock validator;
 
 @property (nonatomic, strong) IBOutlet id<DCTTextFieldValidatorEnabledObject> actionControl;
 

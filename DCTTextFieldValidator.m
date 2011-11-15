@@ -19,7 +19,19 @@
 @synthesize textFields;
 @synthesize returnPressedHandler;
 @synthesize enableButtonHandler;
+@synthesize validator;
 @synthesize actionControl;
+
+- (id)init {
+    
+    if (!(self = [super init])) return nil;
+	
+	self.validator = ^BOOL(UITextField *textField, NSString *string) {
+		return ![string isEqualToString:@""];
+	};
+	
+    return self;
+}
 
 - (void)setTextFields:(NSArray *)tfs {
 	
@@ -50,7 +62,7 @@
 	
 	NSString *s = [textField.text stringByReplacingCharactersInRange:range withString:string];
 	
-	if (textField.returnKeyType == returnKeyType && ![s isEqualToString:@""]) {
+	if (textField.returnKeyType == returnKeyType && self.validator(textField, s)) {
 		if (self.enableButtonHandler) self.enableButtonHandler(YES);
 		self.actionControl.enabled = YES;
 	} else {
@@ -94,7 +106,7 @@
 		if ([otherTextField isEqual:textField])
 			return;
 		
-		if (!otherTextField.text || [otherTextField.text isEqualToString:@""]) {
+		if (!otherTextField.text || !self.validator(otherTextField, otherTextField.text)) {
 			anotherTextFieldIsEmpty = YES;
 			*stop = YES;
 		}
