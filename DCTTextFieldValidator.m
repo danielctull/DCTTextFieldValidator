@@ -18,7 +18,7 @@
 
 @synthesize textFields;
 @synthesize returnPressedHandler;
-@synthesize enableButtonHandler;
+@synthesize validationChangeHandler;
 @synthesize validator;
 @synthesize actionControl;
 
@@ -58,15 +58,15 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 	
-	if (!self.enableButtonHandler && !self.actionControl) return YES;
+	if (!self.validationChangeHandler && !self.actionControl) return YES;
 	
 	NSString *s = [textField.text stringByReplacingCharactersInRange:range withString:string];
 	
 	if (textField.returnKeyType == returnKeyType && self.validator(textField, s)) {
-		if (self.enableButtonHandler) self.enableButtonHandler(YES);
+		if (self.validationChangeHandler) self.validationChangeHandler(YES);
 		self.actionControl.enabled = YES;
 	} else {
-		if (self.enableButtonHandler) self.enableButtonHandler(NO);
+		if (self.validationChangeHandler) self.validationChangeHandler(NO);
 		self.actionControl.enabled = NO;
 	}
 	

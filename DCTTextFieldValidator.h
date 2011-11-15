@@ -15,14 +15,16 @@
 typedef BOOL (^DCTTextFieldValidatorValidationBlock) (UITextField *textField, NSString *string);
 
 typedef void (^DCTTextFieldValidatorReturnPressedBlock) ();
-typedef void (^DCTTextFieldValidatorEnableBlock) (BOOL enabled);
+typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
 
 @interface DCTTextFieldValidator : NSObject <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
 
 @property (nonatomic, copy) DCTTextFieldValidatorReturnPressedBlock returnPressedHandler;
-@property (nonatomic, copy) DCTTextFieldValidatorEnableBlock enableButtonHandler;
+
+@property (nonatomic, copy) DCTTextFieldValidatorValidBlock validationChangeHandler;
+
 @property (nonatomic, copy) DCTTextFieldValidatorValidationBlock validator;
 
 @property (nonatomic, strong) IBOutlet id<DCTTextFieldValidatorEnabledObject> actionControl;
