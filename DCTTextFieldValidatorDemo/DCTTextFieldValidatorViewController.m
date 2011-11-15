@@ -17,7 +17,7 @@
 	
 	__weak DCTTextFieldValidatorViewController *weakSelf = self;
 	
-	validator.returnPressedHandler = ^ {
+	validator.returnHandler = ^ {
 		[weakSelf login:weakSelf];		
 	};
 }
