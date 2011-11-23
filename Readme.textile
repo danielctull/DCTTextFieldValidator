@@ -2,7 +2,7 @@ h1. DCTTextFieldValidator
 
 DCTTextFieldValidator takes an array of UITextFields and validates them before allowing an action to take place.
 
-If switches the return key depending on if the text fields are valid, if one or more text fields are not valid, it will make the next one int he array the first responder upon tapping the return key. Once all fields are valid, the keyboard return key will become (for all text fields in the array) that which is assigned to the last text field in the array.
+It switches the return key depending on whether or not the text fields are valid, if one or more text fields are invalid, it will make the next one in the array the first responder upon tapping the return key. Once all fields are valid, the keyboard return key will become (for all text fields in the array) that which is assigned to the last text field in the array.
 
 The main thinking is to make sure all of the fields are filled out, and not blank. Though I am considering a post-validation, which would validate each one after the return key is hit, such as checking emails are correct and such. I’ve filed this as a bug on GitHub and would be grateful for any input on this.
 
