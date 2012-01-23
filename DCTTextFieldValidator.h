@@ -69,6 +69,8 @@ typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
  */
 @interface DCTTextFieldValidator : NSObject <UITextFieldDelegate>
 
+@property (nonatomic, readonly, getter = isValid) BOOL valid;
+
 /** The text fields that require validating.
  
  This can either be set using IB, making use of the IBOutletCollection, or in code.
