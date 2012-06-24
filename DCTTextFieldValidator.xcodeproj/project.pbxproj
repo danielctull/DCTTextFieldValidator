@@ -313,6 +313,7 @@
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
@@ -326,6 +327,7 @@
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
@@ -382,6 +384,7 @@
 				24B494FA1591CB410004A76A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24B494FB1591CB410004A76A /* Build configuration list for PBXNativeTarget "DCTTextFieldValidatorTests" */ = {
 			isa = XCConfigurationList;
@@ -390,6 +393,7 @@
 				24B494FD1591CB410004A76A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
