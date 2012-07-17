@@ -39,7 +39,8 @@
 #ifndef dcttextfieldvalidator
 #define dcttextfieldvalidator_1_0     10000
 #define dcttextfieldvalidator_1_0_1   10001
-#define dcttextfieldvalidator         dcttextfieldvalidator_1_0_1
+#define dcttextfieldvalidator_1_1	  10100
+#define dcttextfieldvalidator         dcttextfieldvalidator_1_1
 #endif
 
 /** Used to represent a class which has an enabled property, such as UIControl, UIBarItem, UILabel or
