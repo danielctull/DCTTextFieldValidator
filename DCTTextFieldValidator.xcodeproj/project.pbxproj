@@ -16,6 +16,15 @@
 		24B494F51591CB410004A76A /* DCTTextFieldValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B494F41591CB410004A76A /* DCTTextFieldValidatorTests.m */; };
 		24B495001591CB8D0004A76A /* DCTTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */; };
 		24B495021591CB990004A76A /* DCTTextFieldValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24E8FECA15B70C9900240A87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494E71591CB410004A76A /* UIKit.framework */; };
+		24E8FECB15B70C9900240A87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
+		24E8FECD15B70C9900240A87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8FECC15B70C9900240A87 /* CoreGraphics.framework */; };
+		24E8FED315B70C9900240A87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24E8FED115B70C9900240A87 /* InfoPlist.strings */; };
+		24E8FED515B70C9900240A87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8FED415B70C9900240A87 /* main.m */; };
+		24E8FED915B70C9900240A87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8FED815B70C9900240A87 /* AppDelegate.m */; };
+		24E8FEE115B70CB400240A87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8FEDF15B70CB400240A87 /* ViewController.m */; };
+		24E8FEE215B70CB400240A87 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E8FEE015B70CB400240A87 /* ViewController.xib */; };
+		24E8FEE315B70D1E00240A87 /* libDCTTextFieldValidator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D31591CB410004A76A /* libDCTTextFieldValidator.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,17 @@
 		24B494F41591CB410004A76A /* DCTTextFieldValidatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorTests.m; sourceTree = "<group>"; };
 		24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidator.h; sourceTree = "<group>"; };
 		24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidator.m; sourceTree = "<group>"; };
+		24E8FEC815B70C9900240A87 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24E8FECC15B70C9900240A87 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		24E8FED015B70C9900240A87 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		24E8FED215B70C9900240A87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24E8FED415B70C9900240A87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24E8FED615B70C9900240A87 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
+		24E8FED715B70C9900240A87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		24E8FED815B70C9900240A87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		24E8FEDE15B70CB400240A87 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		24E8FEDF15B70CB400240A87 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		24E8FEE015B70CB400240A87 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +82,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24E8FEC515B70C9900240A87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E8FECA15B70C9900240A87 /* UIKit.framework in Frameworks */,
+				24E8FEE315B70D1E00240A87 /* libDCTTextFieldValidator.a in Frameworks */,
+				24E8FECB15B70C9900240A87 /* Foundation.framework in Frameworks */,
+				24E8FECD15B70C9900240A87 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +101,7 @@
 			children = (
 				24B494D81591CB410004A76A /* DCTTextFieldValidator */,
 				24B494ED1591CB410004A76A /* DCTTextFieldValidatorTests */,
+				24E8FECE15B70C9900240A87 /* Demo */,
 				24B494D51591CB410004A76A /* Frameworks */,
 				24B494D41591CB410004A76A /* Products */,
 			);
@@ -80,6 +112,7 @@
 			children = (
 				24B494D31591CB410004A76A /* libDCTTextFieldValidator.a */,
 				24B494E41591CB410004A76A /* DCTTextFieldValidatorTests.octest */,
+				24E8FEC815B70C9900240A87 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +123,7 @@
 				24B494D61591CB410004A76A /* Foundation.framework */,
 				24B494E51591CB410004A76A /* SenTestingKit.framework */,
 				24B494E71591CB410004A76A /* UIKit.framework */,
+				24E8FECC15B70C9900240A87 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +152,30 @@
 			children = (
 				24B494EF1591CB410004A76A /* DCTTextFieldValidatorTests-Info.plist */,
 				24B494F01591CB410004A76A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24E8FECE15B70C9900240A87 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				24E8FED715B70C9900240A87 /* AppDelegate.h */,
+				24E8FED815B70C9900240A87 /* AppDelegate.m */,
+				24E8FEDE15B70CB400240A87 /* ViewController.h */,
+				24E8FEDF15B70CB400240A87 /* ViewController.m */,
+				24E8FEE015B70CB400240A87 /* ViewController.xib */,
+				24E8FECF15B70C9900240A87 /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		24E8FECF15B70C9900240A87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24E8FED015B70C9900240A87 /* Demo-Info.plist */,
+				24E8FED115B70C9900240A87 /* InfoPlist.strings */,
+				24E8FED415B70C9900240A87 /* main.m */,
+				24E8FED615B70C9900240A87 /* Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,6 +230,23 @@
 			productReference = 24B494E41591CB410004A76A /* DCTTextFieldValidatorTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		24E8FEC715B70C9900240A87 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24E8FEDC15B70C9900240A87 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				24E8FEC415B70C9900240A87 /* Sources */,
+				24E8FEC515B70C9900240A87 /* Frameworks */,
+				24E8FEC615B70C9900240A87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 24E8FEC815B70C9900240A87 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,6 +270,7 @@
 			targets = (
 				24B494D21591CB410004A76A /* DCTTextFieldValidator */,
 				24B494E31591CB410004A76A /* DCTTextFieldValidatorTests */,
+				24E8FEC715B70C9900240A87 /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +281,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				24B494F21591CB410004A76A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24E8FEC615B70C9900240A87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E8FED315B70C9900240A87 /* InfoPlist.strings in Resources */,
+				24E8FEE215B70CB400240A87 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +328,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24E8FEC415B70C9900240A87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E8FED515B70C9900240A87 /* main.m in Sources */,
+				24E8FED915B70C9900240A87 /* AppDelegate.m in Sources */,
+				24E8FEE115B70CB400240A87 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -258,6 +353,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				24B494F11591CB410004A76A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		24E8FED115B70C9900240A87 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24E8FED215B70C9900240A87 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -365,6 +468,49 @@
 			};
 			name = Release;
 		};
+		24E8FEDA15B70C9900240A87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP3.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		24E8FEDB15B70C9900240A87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP3.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -394,6 +540,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		24E8FEDC15B70C9900240A87 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24E8FEDA15B70C9900240A87 /* Debug */,
+				24E8FEDB15B70C9900240A87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
