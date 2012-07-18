@@ -36,22 +36,9 @@
 
 #import "DCTTextFieldValidator.h"
 
-@interface DCTTextFieldValidator ()
-- (BOOL)dctInternal_anotherTextFieldIsEmpty:(UITextField *)textField;
-- (void)dctInternal_setupEnabled;
-- (void)dctInternal_setValid:(BOOL)isValid;
-@end
-
 @implementation DCTTextFieldValidator {
-	UIReturnKeyType returnKeyType;
+	UIReturnKeyType _returnKeyType;
 }
-
-@synthesize valid;
-@synthesize textFields;
-@synthesize returnHandler;
-@synthesize validationChangeHandler;
-@synthesize validator;
-@synthesize enabledObject;
 
 - (id)init {
     
@@ -66,44 +53,44 @@
 
 - (void)setTextFields:(NSArray *)tfs {
 	
-	textFields = tfs;
+	_textFields = tfs;
 	
 	for (UITextField *textField in self.textFields) {
 		[textField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField addTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		textField.enablesReturnKeyAutomatically = YES;
-		returnKeyType = textField.returnKeyType;
+		_returnKeyType = textField.returnKeyType;
 	}
 	
-	[self dctInternal_setupEnabled];
+	[self _setupEnabled];
 }
 
 - (void)setValidator:(DCTTextFieldValidatorValidationBlock)newValidator {
-	validator = newValidator;
-	[self dctInternal_setupEnabled];
+	_validator = newValidator;
+	[self _setupEnabled];
 }
 
 - (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)newEnabledObject {
-	enabledObject = newEnabledObject;
-	[self dctInternal_setupEnabled];
+	_enabledObject = newEnabledObject;
+	[self _setupEnabled];
 }
 
 #pragma mark - UITextFieldDelegate
 
 - (void)editingDidBegin:(UITextField *)textField {
 	
-	if ([self dctInternal_anotherTextFieldIsEmpty:textField])
+	if ([self _anotherTextFieldIsEmpty:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
-		textField.returnKeyType = returnKeyType;
+		textField.returnKeyType = _returnKeyType;
 }
 
 - (void)editingChanged:(UITextField *)textField {
 	
 	if (!self.validationChangeHandler && !self.enabledObject) return;
 	
-	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text))
+	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
 		[self dctInternal_setValid:YES];
 	else
 		[self dctInternal_setValid:NO];
@@ -111,7 +98,7 @@
 
 - (void)editingDidEndOnExit:(UITextField *)textField {
 	
-	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text)) {
+	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text)) {
 		if (self.returnHandler) self.returnHandler();
 		return;
 	}
@@ -131,11 +118,11 @@
 	}];
 }
 
-- (BOOL)dctInternal_anotherTextFieldIsEmpty:(UITextField *)textField {
+- (BOOL)_anotherTextFieldIsEmpty:(UITextField *)textField {
 	
 	__block BOOL anotherTextFieldIsEmpty = NO;
 	
-	[textFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
+	[self.textFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
 				
 		if ([otherTextField isEqual:textField])
 			return;
@@ -149,7 +136,7 @@
 	return anotherTextFieldIsEmpty;
 }
 
-- (void)dctInternal_setupEnabled {
+- (void)_setupEnabled {
 	
 	BOOL newValid = YES;
 	
@@ -162,7 +149,7 @@
 }
 
 - (void)dctInternal_setValid:(BOOL)isValid {
-	valid = isValid;
+	_valid = isValid;
 	if (self.validationChangeHandler != NULL) self.validationChangeHandler(isValid);
 	self.enabledObject.enabled = isValid;
 }
