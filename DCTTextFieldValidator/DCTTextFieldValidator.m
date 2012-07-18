@@ -66,8 +66,8 @@
 	[self _setupEnabled];
 }
 
-- (void)setValidator:(DCTTextFieldValidatorValidationBlock)newValidator {
-	_validator = newValidator;
+- (void)setValidator:(BOOL (^)(UITextField *, NSString *))validator {
+	_validator = validator;
 	[self _setupEnabled];
 }
 

@@ -53,10 +53,6 @@
 @property(nonatomic) BOOL enabled;
 @end
 
-typedef BOOL (^DCTTextFieldValidatorValidationBlock) (UITextField *textField, NSString *string);
-typedef void (^DCTTextFieldValidatorReturnBlock) ();
-typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
-
 
 /** This class takes an array of UITextFields and validates them before allowing an action to take place.
  
@@ -79,23 +75,13 @@ typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
  */
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
 
-/** This block will get called when the text fields are valid and the return key on the keyboard is tapped.
- 
- This is block is definied as:
- 
-	typedef void (^DCTTextFieldValidatorReturnBlock) ();
- 
+/** This block will get called when the text fields are valid and the return key on the keyboard is tapped. 
  */
-@property (nonatomic, copy) DCTTextFieldValidatorReturnBlock returnHandler;
+@property (nonatomic, copy) void (^returnHandler)();
 
 /** A block that gets called when the validity of the text fields as a whole changes.
- 
- This is defined as:
- 
-	typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
- 
  */
-@property (nonatomic, copy) DCTTextFieldValidatorValidBlock validationChangeHandler;
+@property (nonatomic, copy) void (^validationChangeHandler)(BOOL isValid);
 
 
 /** Block to check if the text in the text field is valid.
@@ -111,7 +97,7 @@ typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
  The default implementation has a block which returns TRUE if the string is not empty;
  
  */
-@property (nonatomic, copy) DCTTextFieldValidatorValidationBlock validator;
+@property (nonatomic, copy) BOOL (^validator)(UITextField *textField, NSString *string);
 
 
 /** An object that requires enabling when the text fields are valid.
