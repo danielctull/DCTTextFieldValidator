@@ -69,7 +69,9 @@
 	textFields = tfs;
 	
 	for (UITextField *textField in self.textFields) {
-		textField.delegate = self;
+		[textField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField addTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField addTarget:self action:@selector(editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		textField.enablesReturnKeyAutomatically = YES;
 		returnKeyType = textField.returnKeyType;
 	}
@@ -89,37 +91,31 @@
 
 #pragma mark - UITextFieldDelegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (void)editingDidBegin:(UITextField *)textField {
 	
 	if ([self dctInternal_anotherTextFieldIsEmpty:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
 		textField.returnKeyType = returnKeyType;
-	
-	return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (void)editingChanged:(UITextField *)textField {
 	
-	if (!self.validationChangeHandler && !self.enabledObject) return YES;
+	if (!self.validationChangeHandler && !self.enabledObject) return;
 	
-	NSString *s = [textField.text stringByReplacingCharactersInRange:range withString:string];
-	
-	if (textField.returnKeyType == returnKeyType && self.validator(textField, s))
+	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text))
 		[self dctInternal_setValid:YES];
 	else
 		[self dctInternal_setValid:NO];
-	
-	return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (void)editingDidEndOnExit:(UITextField *)textField {
 	
 	if (textField.returnKeyType == returnKeyType && self.validator(textField, textField.text)) {
 		if (self.returnHandler) self.returnHandler();
-		return YES;
+		return;
 	}
-		
+	
 	NSUInteger index = [self.textFields indexOfObject:textField];
 	
 	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
@@ -133,8 +129,6 @@
 			*stop = YES;
 		}
 	}];
-	
-	return YES;
 }
 
 - (BOOL)dctInternal_anotherTextFieldIsEmpty:(UITextField *)textField {

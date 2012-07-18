@@ -69,7 +69,7 @@ typedef void (^DCTTextFieldValidatorValidBlock) (BOOL valid);
  a post-validation, which would validate each one after the return key is hit, such as checking emails are 
  correct and such. I've filed this as a bug on GitHub and would be grateful for any input on this.
  */
-@interface DCTTextFieldValidator : NSObject <UITextFieldDelegate>
+@interface DCTTextFieldValidator : NSObject
 
 @property (nonatomic, readonly, getter = isValid) BOOL valid;
 
