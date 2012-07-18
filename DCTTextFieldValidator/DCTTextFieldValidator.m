@@ -51,14 +51,14 @@
     return self;
 }
 
-- (void)setTextFields:(NSArray *)tfs {
+- (void)setTextFields:(NSArray *)textFields {
 	
-	_textFields = tfs;
+	_textFields = [textFields copy];
 	
 	for (UITextField *textField in self.textFields) {
-		[textField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
-		[textField addTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
-		[textField addTarget:self action:@selector(editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		textField.enablesReturnKeyAutomatically = YES;
 		_returnKeyType = textField.returnKeyType;
 	}
@@ -71,14 +71,14 @@
 	[self _setupEnabled];
 }
 
-- (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)newEnabledObject {
-	_enabledObject = newEnabledObject;
+- (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)enabledObject {
+	_enabledObject = enabledObject;
 	[self _setupEnabled];
 }
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - UIControlEvents
 
-- (void)editingDidBegin:(UITextField *)textField {
+- (void)_editingDidBegin:(UITextField *)textField {
 	
 	if ([self _anotherTextFieldIsEmpty:textField])
 		textField.returnKeyType = UIReturnKeyNext;
@@ -86,17 +86,17 @@
 		textField.returnKeyType = _returnKeyType;
 }
 
-- (void)editingChanged:(UITextField *)textField {
+- (void)_editingChanged:(UITextField *)textField {
 	
 	if (!self.validationChangeHandler && !self.enabledObject) return;
 	
 	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
-		[self dctInternal_setValid:YES];
+		[self _setValid:YES];
 	else
-		[self dctInternal_setValid:NO];
+		[self _setValid:NO];
 }
 
-- (void)editingDidEndOnExit:(UITextField *)textField {
+- (void)_editingDidEndOnExit:(UITextField *)textField {
 	
 	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text)) {
 		if (self.returnHandler) self.returnHandler();
@@ -117,6 +117,8 @@
 		}
 	}];
 }
+
+#pragma mark - Internal
 
 - (BOOL)_anotherTextFieldIsEmpty:(UITextField *)textField {
 	
@@ -145,10 +147,10 @@
 		if (!v) newValid = NO;
 	}
 	
-	[self dctInternal_setValid:newValid];
+	[self _setValid:newValid];
 }
 
-- (void)dctInternal_setValid:(BOOL)isValid {
+- (void)_setValid:(BOOL)isValid {
 	_valid = isValid;
 	if (self.validationChangeHandler != NULL) self.validationChangeHandler(isValid);
 	self.enabledObject.enabled = isValid;
