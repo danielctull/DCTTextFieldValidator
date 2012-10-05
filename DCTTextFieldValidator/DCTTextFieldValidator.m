@@ -42,7 +42,8 @@
 
 - (id)init {
     
-    if (!(self = [super init])) return nil;
+	self = [super init];
+    if (!self) return nil;
 	
 	self.validator = ^BOOL(UITextField *textField, NSString *string) {
 		return ![string isEqualToString:@""];
