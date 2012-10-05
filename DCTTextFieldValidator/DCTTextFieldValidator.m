@@ -52,16 +52,22 @@
 }
 
 - (void)setTextFields:(NSArray *)textFields {
+		
+	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+	}];
 	
 	_textFields = [textFields copy];
 	
-	for (UITextField *textField in self.textFields) {
+	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		textField.enablesReturnKeyAutomatically = YES;
 		_returnKeyType = textField.returnKeyType;
-	}
+	}];
 	
 	[self _setupEnabled];
 }
