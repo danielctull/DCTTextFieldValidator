@@ -70,17 +70,17 @@
 		_returnKeyType = textField.returnKeyType;
 	}];
 	
-	[self _setupEnabled];
+	[self _validate];
 }
 
 - (void)setValidator:(BOOL (^)(UITextField *, NSString *))validator {
 	_validator = validator;
-	[self _setupEnabled];
+	[self _validate];
 }
 
 - (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)enabledObject {
 	_enabledObject = enabledObject;
-	[self _setupEnabled];
+	[self _validate];
 }
 
 #pragma mark - UIControlEvents
@@ -94,11 +94,7 @@
 }
 
 - (void)_editingChanged:(UITextField *)textField {
-	
-	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
-		[self _setValid:YES];
-	else
-		[self _setValid:NO];
+	[self _validate];
 }
 
 - (void)_editingDidEndOnExit:(UITextField *)textField {
@@ -133,22 +129,25 @@
 	return nextTextField;
 }
 
-- (void)_setupEnabled {
+- (void)_validate {
 	
-	BOOL newValid = YES;
+	__block BOOL isValid = YES;
 	
-	for (UITextField *textField in self.textFields) {
-		BOOL v = self.validator(textField, textField.text);		
-		if (!v) newValid = NO;
-	}
+	[self.textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		if (!self.validator(textField, textField.text)) {
+			isValid = NO;
+			*stop = YES;
+		}
+	}];
 	
-	[self _setValid:newValid];
+	[self _setValid:isValid];
+	self.enabledObject.enabled = isValid;
 }
 
 - (void)_setValid:(BOOL)isValid {
+	if (_valid == isValid);
 	_valid = isValid;
 	if (self.validationChangeHandler != NULL) self.validationChangeHandler(isValid);
-	self.enabledObject.enabled = isValid;
 }
 
 @end
