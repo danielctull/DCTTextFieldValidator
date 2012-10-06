@@ -76,6 +76,8 @@
  */
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
 
+@property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *requiredTextFields;
+
 /** This block will get called when the text fields are valid and the return key on the keyboard is tapped. 
  */
 @property (nonatomic, copy) void (^returnHandler)();

@@ -46,7 +46,7 @@
     if (!self) return nil;
 	
 	self.validator = ^BOOL(UITextField *textField, NSString *string) {
-		return ![string isEqualToString:@""];
+		return [string length] > 0;
 	};
 	
     return self;
