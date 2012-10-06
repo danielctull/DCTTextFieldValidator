@@ -87,15 +87,13 @@
 
 - (void)_editingDidBegin:(UITextField *)textField {
 	
-	if ([self _anotherTextFieldIsEmpty:textField])
+	if ([self _nextTextField:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
 		textField.returnKeyType = _returnKeyType;
 }
 
 - (void)_editingChanged:(UITextField *)textField {
-	
-	if (!self.validationChangeHandler && !self.enabledObject) return;
 	
 	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
 		[self _setValid:YES];
@@ -105,44 +103,34 @@
 
 - (void)_editingDidEndOnExit:(UITextField *)textField {
 	
-	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text)) {
+	if (self.isValid) {
 		if (self.returnHandler) self.returnHandler();
 		return;
 	}
 	
-	NSUInteger index = [self.textFields indexOfObject:textField];
-	
-	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
-	NSArray *begin = [self.textFields subarrayWithRange:NSMakeRange(0, index)];
-	NSArray *tf = [end arrayByAddingObjectsFromArray:begin];
-	
-	[tf enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
-		
-		if (!otherTextField.text || [otherTextField.text isEqualToString:@""]) {
-			[otherTextField becomeFirstResponder];
-			*stop = YES;
-		}
-	}];
+	UITextField *nextTextField = [self _nextTextField:textField];
+	[nextTextField becomeFirstResponder];
 }
 
 #pragma mark - Internal
 
-- (BOOL)_anotherTextFieldIsEmpty:(UITextField *)textField {
+- (UITextField *)_nextTextField:(UITextField *)textField {
 	
-	__block BOOL anotherTextFieldIsEmpty = NO;
+	NSUInteger index = [self.textFields indexOfObject:textField];
+	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
+	NSArray *begin = [self.textFields subarrayWithRange:NSMakeRange(0, index)];
+	NSArray *nextTextFields = [end arrayByAddingObjectsFromArray:begin];
 	
-	[self.textFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
-				
-		if ([otherTextField isEqual:textField])
-			return;
-		
-		if (!otherTextField.text || !self.validator(otherTextField, otherTextField.text)) {
-			anotherTextFieldIsEmpty = YES;
+	__block UITextField *nextTextField;
+	
+	[nextTextFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
+		if (!self.validator(otherTextField, otherTextField.text)) {
+			nextTextField = otherTextField;
 			*stop = YES;
 		}
 	}];
 	
-	return anotherTextFieldIsEmpty;
+	return nextTextField;
 }
 
 - (void)_setupEnabled {
