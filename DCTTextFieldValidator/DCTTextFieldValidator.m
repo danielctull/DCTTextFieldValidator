@@ -66,8 +66,19 @@
 		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
-		textField.enablesReturnKeyAutomatically = YES;
 		_returnKeyType = textField.returnKeyType;
+	}];
+	
+	if (!self.requiredTextFields) self.requiredTextFields = _textFields;
+}
+
+- (void)setRequiredTextFields:(NSArray *)requiredTextFields {
+
+	_requiredTextFields = [requiredTextFields copy];
+	
+	[_requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		textField.enablesReturnKeyAutomatically = YES;
+		[self _addTextFieldIfNeeded:textField];
 	}];
 	
 	[self _validate];
@@ -110,6 +121,14 @@
 
 #pragma mark - Internal
 
+- (void)_addTextFieldIfNeeded:(UITextField *)textField {
+	if ([self.textFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.textFields mutableCopy];
+	if (!textFields) textFields = [NSMutableArray new];
+	[textFields addObject:textField];
+	self.textFields = textFields;
+}
+
 - (UITextField *)_nextTextField:(UITextField *)textField {
 	
 	NSUInteger index = [self.textFields indexOfObject:textField];
@@ -133,7 +152,7 @@
 	
 	__block BOOL isValid = YES;
 	
-	[self.textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+	[self.requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		if (!self.validator(textField, textField.text)) {
 			isValid = NO;
 			*stop = YES;
