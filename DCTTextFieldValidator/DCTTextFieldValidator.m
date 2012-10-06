@@ -99,13 +99,13 @@
 
 - (void)_editingDidEndOnExit:(UITextField *)textField {
 	
-	if (self.isValid) {
-		if (self.returnHandler) self.returnHandler();
+	UITextField *nextTextField = [self _nextTextField:textField];
+	if (nextTextField) {
+		[nextTextField becomeFirstResponder];
 		return;
 	}
 	
-	UITextField *nextTextField = [self _nextTextField:textField];
-	[nextTextField becomeFirstResponder];
+	if (self.returnHandler) self.returnHandler();
 }
 
 #pragma mark - Internal
