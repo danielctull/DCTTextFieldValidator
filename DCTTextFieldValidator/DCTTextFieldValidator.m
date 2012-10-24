@@ -78,7 +78,7 @@
 	
 	[_requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		textField.enablesReturnKeyAutomatically = YES;
-		[self _addTextFieldIfNeeded:textField];
+		[self addTextField:textField];
 	}];
 	
 	[self _validate];
@@ -92,6 +92,37 @@
 - (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)enabledObject {
 	_enabledObject = enabledObject;
 	[self _validate];
+}
+
+- (void)addTextField:(UITextField *)textField {
+	if ([self.textFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.textFields mutableCopy];
+	if (!textFields) textFields = [NSMutableArray new];
+	[textFields addObject:textField];
+	self.textFields = textFields;
+}
+
+- (void)removeTextField:(UITextField *)textField {
+	if (![self.textFields containsObject:textField]) return;
+	[self removeRequiredTextField:textField];
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	[textFields removeObject:textField];
+	self.textFields = textFields;
+}
+
+- (void)addRequiredTextField:(UITextField *)textField {
+	if ([self.requiredTextFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	if (!textFields) textFields = [NSMutableArray new];
+	[textFields addObject:textField];
+	self.requiredTextFields = textFields;
+}
+
+- (void)removeRequiredTextField:(UITextField *)textField {
+	if (![self.requiredTextFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	[textFields removeObject:textField];
+	self.requiredTextFields = textFields;
 }
 
 #pragma mark - UIControlEvents
@@ -120,14 +151,6 @@
 }
 
 #pragma mark - Internal
-
-- (void)_addTextFieldIfNeeded:(UITextField *)textField {
-	if ([self.textFields containsObject:textField]) return;
-	NSMutableArray *textFields = [self.textFields mutableCopy];
-	if (!textFields) textFields = [NSMutableArray new];
-	[textFields addObject:textField];
-	self.textFields = textFields;
-}
 
 - (UITextField *)_nextTextField:(UITextField *)textField {
 	
