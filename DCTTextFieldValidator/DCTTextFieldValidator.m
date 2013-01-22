@@ -87,9 +87,7 @@
 }
 
 - (void)_editingChanged:(UITextField *)textField {
-	
-	if (!self.validationChangeHandler && !self.enabledObject) return;
-	
+		
 	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
 		[self _setValid:YES];
 	else
