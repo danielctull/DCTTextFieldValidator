@@ -42,116 +42,154 @@
 
 - (id)init {
     
-    if (!(self = [super init])) return nil;
+	self = [super init];
+    if (!self) return nil;
 	
 	self.validator = ^BOOL(UITextField *textField, NSString *string) {
-		return ![string isEqualToString:@""];
+		return [string length] > 0;
 	};
 	
     return self;
 }
 
 - (void)setTextFields:(NSArray *)textFields {
+		
+	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+	}];
 	
 	_textFields = [textFields copy];
 	
-	for (UITextField *textField in self.textFields) {
+	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
-		textField.enablesReturnKeyAutomatically = YES;
 		_returnKeyType = textField.returnKeyType;
-	}
+	}];
 	
-	[self _setupEnabled];
+	if (!self.requiredTextFields) self.requiredTextFields = _textFields;
+}
+
+- (void)setRequiredTextFields:(NSArray *)requiredTextFields {
+
+	_requiredTextFields = [requiredTextFields copy];
+	
+	[_requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		textField.enablesReturnKeyAutomatically = YES;
+		[self addTextField:textField];
+	}];
+	
+	[self _validate];
 }
 
 - (void)setValidator:(BOOL (^)(UITextField *, NSString *))validator {
 	_validator = validator;
-	[self _setupEnabled];
+	[self _validate];
 }
 
 - (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)enabledObject {
 	_enabledObject = enabledObject;
-	[self _setupEnabled];
+	[self _validate];
+}
+
+- (void)addTextField:(UITextField *)textField {
+	if ([self.textFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.textFields mutableCopy];
+	if (!textFields) textFields = [NSMutableArray new];
+	[textFields addObject:textField];
+	self.textFields = textFields;
+}
+
+- (void)removeTextField:(UITextField *)textField {
+	if (![self.textFields containsObject:textField]) return;
+	[self removeRequiredTextField:textField];
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	[textFields removeObject:textField];
+	self.textFields = textFields;
+}
+
+- (void)addRequiredTextField:(UITextField *)textField {
+	if ([self.requiredTextFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	if (!textFields) textFields = [NSMutableArray new];
+	[textFields addObject:textField];
+	self.requiredTextFields = textFields;
+}
+
+- (void)removeRequiredTextField:(UITextField *)textField {
+	if (![self.requiredTextFields containsObject:textField]) return;
+	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
+	[textFields removeObject:textField];
+	self.requiredTextFields = textFields;
 }
 
 #pragma mark - UIControlEvents
 
 - (void)_editingDidBegin:(UITextField *)textField {
 	
-	if ([self _anotherTextFieldIsEmpty:textField])
+	if ([self _nextTextField:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
 		textField.returnKeyType = _returnKeyType;
 }
 
 - (void)_editingChanged:(UITextField *)textField {
-		
-	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text))
-		[self _setValid:YES];
-	else
-		[self _setValid:NO];
+	[self _validate];
 }
 
 - (void)_editingDidEndOnExit:(UITextField *)textField {
 	
-	if (textField.returnKeyType == _returnKeyType && self.validator(textField, textField.text)) {
-		if (self.returnHandler) self.returnHandler();
+	UITextField *nextTextField = [self _nextTextField:textField];
+	if (nextTextField) {
+		[nextTextField becomeFirstResponder];
 		return;
 	}
 	
-	NSUInteger index = [self.textFields indexOfObject:textField];
-	
-	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
-	NSArray *begin = [self.textFields subarrayWithRange:NSMakeRange(0, index)];
-	NSArray *tf = [end arrayByAddingObjectsFromArray:begin];
-	
-	[tf enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
-		
-		if (!otherTextField.text || [otherTextField.text isEqualToString:@""]) {
-			[otherTextField becomeFirstResponder];
-			*stop = YES;
-		}
-	}];
+	if (self.returnHandler) self.returnHandler();
 }
 
 #pragma mark - Internal
 
-- (BOOL)_anotherTextFieldIsEmpty:(UITextField *)textField {
+- (UITextField *)_nextTextField:(UITextField *)textField {
 	
-	__block BOOL anotherTextFieldIsEmpty = NO;
+	NSUInteger index = [self.textFields indexOfObject:textField];
+	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
+	NSArray *begin = [self.textFields subarrayWithRange:NSMakeRange(0, index)];
+	NSArray *nextTextFields = [end arrayByAddingObjectsFromArray:begin];
 	
-	[self.textFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
-				
-		if ([otherTextField isEqual:textField])
-			return;
-		
-		if (!otherTextField.text || !self.validator(otherTextField, otherTextField.text)) {
-			anotherTextFieldIsEmpty = YES;
+	__block UITextField *nextTextField;
+	
+	[nextTextFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
+		if (!self.validator(otherTextField, otherTextField.text)) {
+			nextTextField = otherTextField;
 			*stop = YES;
 		}
 	}];
 	
-	return anotherTextFieldIsEmpty;
+	return nextTextField;
 }
 
-- (void)_setupEnabled {
+- (void)_validate {
 	
-	BOOL newValid = YES;
+	__block BOOL isValid = YES;
 	
-	for (UITextField *textField in self.textFields) {
-		BOOL v = self.validator(textField, textField.text);		
-		if (!v) newValid = NO;
-	}
+	[self.requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		if (!self.validator(textField, textField.text)) {
+			isValid = NO;
+			*stop = YES;
+		}
+	}];
 	
-	[self _setValid:newValid];
+	[self _setValid:isValid];
+	self.enabledObject.enabled = isValid;
 }
 
 - (void)_setValid:(BOOL)isValid {
+	if (_valid == isValid);
 	_valid = isValid;
 	if (self.validationChangeHandler != NULL) self.validationChangeHandler(isValid);
-	self.enabledObject.enabled = isValid;
 }
 
 @end

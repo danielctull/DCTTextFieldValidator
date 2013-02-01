@@ -74,7 +74,13 @@
  
  This can either be set using IB, making use of the IBOutletCollection, or in code.
  */
-@property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
+- (void)addTextField:(UITextField *)textField;
+- (void)removeTextField:(UITextField *)textField;
+@property (nonatomic, copy) IBOutletCollection(UITextField) NSArray *textFields;
+
+- (void)addRequiredTextField:(UITextField *)textField;
+- (void)removeRequiredTextField:(UITextField *)textField;
+@property (nonatomic, copy) IBOutletCollection(UITextField) NSArray *requiredTextFields;
 
 /** This block will get called when the text fields are valid and the return key on the keyboard is tapped. 
  */
