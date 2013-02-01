@@ -147,10 +147,30 @@
 		return;
 	}
 	
-	if (self.returnHandler) self.returnHandler();
+	if (self.returnHandler != NULL)
+		self.returnHandler();
+	else
+		[self _performEnabledObject];
 }
 
 #pragma mark - Internal
+
+- (void)_performEnabledObject {
+
+	if ([self.enabledObject isKindOfClass:[UIBarButtonItem class]]) {
+		UIBarButtonItem *item = (UIBarButtonItem *)self.enabledObject;
+		id target = item.target;
+		SEL selector = item.action;
+		NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+		NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+		invocation.selector = selector;
+		[invocation setArgument:(void *)self atIndex:0];
+		[invocation invokeWithTarget:target];
+	} else if ([self.enabledObject isKindOfClass:[UIControl class]]) {
+		UIControl *control = (UIControl *)self.enabledObject;
+		[control sendActionsForControlEvents:UIControlEventTouchUpInside];
+	}
+}
 
 - (UITextField *)_nextTextField:(UITextField *)textField {
 	
