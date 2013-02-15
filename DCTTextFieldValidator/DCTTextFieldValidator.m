@@ -36,8 +36,16 @@
 
 #import "DCTTextFieldValidator.h"
 
+void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
+
 @implementation DCTTextFieldValidator {
 	UIReturnKeyType _returnKeyType;
+}
+
+- (void)dealloc {
+	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
+		[textField removeObserver:self forKeyPath:@"text" context:DCTTextFieldValidatorContext];
+	}];
 }
 
 - (id)init {
@@ -58,6 +66,7 @@
 		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+		[textField removeObserver:self forKeyPath:@"text" context:DCTTextFieldValidatorContext];
 	}];
 	
 	_textFields = [textFields copy];
@@ -66,6 +75,7 @@
 		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+		[textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:DCTTextFieldValidatorContext];
 		_returnKeyType = textField.returnKeyType;
 	}];
 	
@@ -123,6 +133,16 @@
 	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
 	[textFields removeObject:textField];
 	self.requiredTextFields = textFields;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+	if (context != DCTTextFieldValidatorContext) {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+		return;
+	}
+
+	[self _editingChanged:object];
 }
 
 #pragma mark - UIControlEvents
