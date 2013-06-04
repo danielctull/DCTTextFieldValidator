@@ -45,6 +45,9 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 - (void)dealloc {
 	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		[textField removeObserver:self forKeyPath:@"text" context:DCTTextFieldValidatorContext];
+		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 	}];
 }
 
