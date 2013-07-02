@@ -61,7 +61,9 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 }
 
 - (void)setTextFields:(NSArray *)textFields {
-		
+	
+	textFields = [textFields sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"tag" ascending:YES]]];
+	
 	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
 		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
 		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
@@ -83,6 +85,8 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 }
 
 - (void)setRequiredTextFields:(NSArray *)requiredTextFields {
+	
+	requiredTextFields = [requiredTextFields sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"tag" ascending:YES]]];
 
 	_requiredTextFields = [requiredTextFields copy];
 	
