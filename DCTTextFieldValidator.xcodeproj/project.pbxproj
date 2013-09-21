@@ -369,6 +369,7 @@
 		2437B6AC15B97C9C00750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -383,6 +384,7 @@
 		2437B6AD15B97C9C00750117 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
