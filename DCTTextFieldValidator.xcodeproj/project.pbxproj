@@ -42,6 +42,7 @@
 /* Begin PBXFileReference section */
 		2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTTextFieldValidator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2437B6B015B97CF500750117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		244F133117FEB2FB0016E94E /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
 		24B494D61591CB410004A76A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24B494E41591CB410004A76A /* DCTTextFieldValidatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTextFieldValidatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B494E51591CB410004A76A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -101,6 +102,7 @@
 		24B494C81591CB410004A76A = {
 			isa = PBXGroup;
 			children = (
+				244F133117FEB2FB0016E94E /* Architectures.xcconfig */,
 				24B494D81591CB410004A76A /* DCTTextFieldValidator */,
 				24B494ED1591CB410004A76A /* DCTTextFieldValidatorTests */,
 				24E8FECE15B70C9900240A87 /* Demo */,
@@ -368,8 +370,8 @@
 /* Begin XCBuildConfiguration section */
 		2437B6AC15B97C9C00750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133117FEB2FB0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -383,8 +385,8 @@
 		};
 		2437B6AD15B97C9C00750117 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133117FEB2FB0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTextFieldValidator.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
