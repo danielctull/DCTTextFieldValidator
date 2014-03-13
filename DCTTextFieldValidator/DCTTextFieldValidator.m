@@ -36,11 +36,16 @@
 
 #import "DCTTextFieldValidator.h"
 
-void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
+static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 
-@implementation DCTTextFieldValidator {
-	UIReturnKeyType _returnKeyType;
-}
+@interface DCTTextFieldValidator ()
+@property (nonatomic) UIReturnKeyType returnKeyType;
+@property (nonatomic, readwrite, getter = isValid) BOOL valid;
+@end
+
+@implementation DCTTextFieldValidator
+
+#pragma mark - NSObject
 
 - (void)dealloc {
 	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
@@ -56,12 +61,14 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	self = [super init];
     if (!self) return nil;
 	
-	self.validator = ^BOOL(UITextField *textField, NSString *string) {
+	_validator = ^BOOL(UITextField *textField, NSString *string) {
 		return [string length] > 0;
 	};
 	
     return self;
 }
+
+#pragma mark - Setters
 
 - (void)setTextFields:(NSArray *)textFields {
 	
@@ -81,7 +88,7 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
 		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		[textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:DCTTextFieldValidatorContext];
-		_returnKeyType = textField.returnKeyType;
+		self.returnKeyType = textField.returnKeyType;
 	}];
 	
 	if (!self.requiredTextFields) self.requiredTextFields = _textFields;
@@ -98,18 +105,20 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 		[self addTextField:textField];
 	}];
 	
-	[self _validate];
+	[self validate];
 }
 
 - (void)setValidator:(BOOL (^)(UITextField *, NSString *))validator {
 	_validator = validator;
-	[self _validate];
+	[self validate];
 }
 
 - (void)setEnabledObject:(id<DCTTextFieldValidatorEnabledObject>)enabledObject {
 	_enabledObject = enabledObject;
-	[self _validate];
+	[self validate];
 }
+
+#pragma mark - DCTTextFieldValidator
 
 - (void)addTextField:(UITextField *)textField {
 	if ([self.textFields containsObject:textField]) return;
@@ -159,11 +168,11 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	if ([self _nextTextField:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
-		textField.returnKeyType = _returnKeyType;
+		textField.returnKeyType = self.returnKeyType;
 }
 
 - (void)_editingChanged:(UITextField *)textField {
-	[self _validate];
+	[self validate];
 }
 
 - (void)_editingDidEndOnExit:(UITextField *)textField {
@@ -218,7 +227,7 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	return nextTextField;
 }
 
-- (void)_validate {
+- (void)validate {
 	
 	__block BOOL isValid = YES;
 	
@@ -229,14 +238,16 @@ void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 		}
 	}];
 	
-	[self _setValid:isValid];
-	self.enabledObject.enabled = isValid;
+	self.valid = isValid;
 }
 
-- (void)_setValid:(BOOL)isValid {
-	if (_valid == isValid);
+- (void)setValid:(BOOL)isValid {
+
+	if (_valid == isValid) return;
+
 	_valid = isValid;
-	if (self.validationChangeHandler != NULL) self.validationChangeHandler(isValid);
+	if (self.validationChangeHandler != NULL) self.validationChangeHandler(_valid);
+	self.enabledObject.enabled = _valid;
 }
 
 @end
