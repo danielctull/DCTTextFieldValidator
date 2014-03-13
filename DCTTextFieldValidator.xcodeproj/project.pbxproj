@@ -14,8 +14,6 @@
 		24B494E61591CB410004A76A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494E51591CB410004A76A /* SenTestingKit.framework */; };
 		24B494E81591CB410004A76A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494E71591CB410004A76A /* UIKit.framework */; };
 		24B494E91591CB410004A76A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
-		24B494F21591CB410004A76A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24B494F01591CB410004A76A /* InfoPlist.strings */; };
-		24B494F51591CB410004A76A /* DCTTextFieldValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B494F41591CB410004A76A /* DCTTextFieldValidatorTests.m */; };
 		24E8FECA15B70C9900240A87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494E71591CB410004A76A /* UIKit.framework */; };
 		24E8FECB15B70C9900240A87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
 		24E8FECD15B70C9900240A87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8FECC15B70C9900240A87 /* CoreGraphics.framework */; };
@@ -47,10 +45,6 @@
 		24B494E41591CB410004A76A /* DCTTextFieldValidatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTextFieldValidatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B494E51591CB410004A76A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		24B494E71591CB410004A76A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		24B494EF1591CB410004A76A /* DCTTextFieldValidatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTextFieldValidatorTests-Info.plist"; sourceTree = "<group>"; };
-		24B494F11591CB410004A76A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24B494F31591CB410004A76A /* DCTTextFieldValidatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidatorTests.h; sourceTree = "<group>"; };
-		24B494F41591CB410004A76A /* DCTTextFieldValidatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorTests.m; sourceTree = "<group>"; };
 		24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidator.h; sourceTree = "<group>"; };
 		24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidator.m; sourceTree = "<group>"; };
 		24E8FEC815B70C9900240A87 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +98,6 @@
 			children = (
 				244F133117FEB2FB0016E94E /* Architectures.xcconfig */,
 				24B494D81591CB410004A76A /* DCTTextFieldValidator */,
-				24B494ED1591CB410004A76A /* DCTTextFieldValidatorTests */,
 				24E8FECE15B70C9900240A87 /* Demo */,
 				24B494D51591CB410004A76A /* Frameworks */,
 				24B494D41591CB410004A76A /* Products */,
@@ -140,25 +133,6 @@
 				24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */,
 			);
 			path = DCTTextFieldValidator;
-			sourceTree = "<group>";
-		};
-		24B494ED1591CB410004A76A /* DCTTextFieldValidatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				24B494F31591CB410004A76A /* DCTTextFieldValidatorTests.h */,
-				24B494F41591CB410004A76A /* DCTTextFieldValidatorTests.m */,
-				24B494EE1591CB410004A76A /* Supporting Files */,
-			);
-			path = DCTTextFieldValidatorTests;
-			sourceTree = "<group>";
-		};
-		24B494EE1591CB410004A76A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				24B494EF1591CB410004A76A /* DCTTextFieldValidatorTests-Info.plist */,
-				24B494F01591CB410004A76A /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		24E8FECE15B70C9900240A87 /* Demo */ = {
@@ -247,6 +221,7 @@
 		24B494CA1591CB410004A76A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Daniel Tull";
 			};
@@ -274,7 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24B494F21591CB410004A76A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +306,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24B494F51591CB410004A76A /* DCTTextFieldValidatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,14 +322,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		24B494F01591CB410004A76A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24B494F11591CB410004A76A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		24E8FED115B70C9900240A87 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
