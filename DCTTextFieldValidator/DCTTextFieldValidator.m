@@ -48,12 +48,7 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 #pragma mark - NSObject
 
 - (void)dealloc {
-	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
-		[textField removeObserver:self forKeyPath:@"text" context:DCTTextFieldValidatorContext];
-		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
-		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
-		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
-	}];
+	self.textFields = nil; // Removes the observers from all the text fields.
 }
 
 - (id)init {
@@ -68,6 +63,16 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+	if (context != DCTTextFieldValidatorContext) {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+		return;
+	}
+
+	[self editingChanged:object];
+}
+
 #pragma mark - Setters
 
 - (void)setTextFields:(NSArray *)textFields {
@@ -75,18 +80,18 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	textFields = [textFields sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"tag" ascending:YES]]];
 	
 	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
-		[textField removeTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
-		[textField removeTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
-		[textField removeTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+		[textField removeTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField removeTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField removeTarget:self action:@selector(editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		[textField removeObserver:self forKeyPath:@"text" context:DCTTextFieldValidatorContext];
 	}];
 	
 	_textFields = [textFields copy];
 	
 	[_textFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
-		[textField addTarget:self action:@selector(_editingChanged:) forControlEvents:UIControlEventEditingChanged];
-		[textField addTarget:self action:@selector(_editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
-		[textField addTarget:self action:@selector(_editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+		[textField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
+		[textField addTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+		[textField addTarget:self action:@selector(editingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 		[textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:DCTTextFieldValidatorContext];
 		self.returnKeyType = textField.returnKeyType;
 	}];
@@ -121,7 +126,9 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 #pragma mark - DCTTextFieldValidator
 
 - (void)addTextField:(UITextField *)textField {
+
 	if ([self.textFields containsObject:textField]) return;
+
 	NSMutableArray *textFields = [self.textFields mutableCopy];
 	if (!textFields) textFields = [NSMutableArray new];
 	[textFields addObject:textField];
@@ -129,7 +136,9 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 }
 
 - (void)removeTextField:(UITextField *)textField {
+
 	if (![self.textFields containsObject:textField]) return;
+
 	[self removeRequiredTextField:textField];
 	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
 	[textFields removeObject:textField];
@@ -137,7 +146,9 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 }
 
 - (void)addRequiredTextField:(UITextField *)textField {
+
 	if ([self.requiredTextFields containsObject:textField]) return;
+
 	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
 	if (!textFields) textFields = [NSMutableArray new];
 	[textFields addObject:textField];
@@ -145,39 +156,31 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 }
 
 - (void)removeRequiredTextField:(UITextField *)textField {
+
 	if (![self.requiredTextFields containsObject:textField]) return;
+
 	NSMutableArray *textFields = [self.requiredTextFields mutableCopy];
 	[textFields removeObject:textField];
 	self.requiredTextFields = textFields;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-
-	if (context != DCTTextFieldValidatorContext) {
-		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-		return;
-	}
-
-	[self _editingChanged:object];
-}
-
 #pragma mark - UIControlEvents
 
-- (void)_editingDidBegin:(UITextField *)textField {
+- (void)editingDidBegin:(UITextField *)textField {
 	
-	if ([self _nextTextField:textField])
+	if ([self nextTextField:textField])
 		textField.returnKeyType = UIReturnKeyNext;
 	else
 		textField.returnKeyType = self.returnKeyType;
 }
 
-- (void)_editingChanged:(UITextField *)textField {
+- (void)editingChanged:(UITextField *)textField {
 	[self validate];
 }
 
-- (void)_editingDidEndOnExit:(UITextField *)textField {
+- (void)editingDidEndOnExit:(UITextField *)textField {
 	
-	UITextField *nextTextField = [self _nextTextField:textField];
+	UITextField *nextTextField = [self nextTextField:textField];
 	if (nextTextField) {
 		[nextTextField becomeFirstResponder];
 		return;
@@ -186,12 +189,12 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	if (self.returnHandler != NULL)
 		self.returnHandler();
 	else
-		[self _performEnabledObject];
+		[self performEnabledObject];
 }
 
 #pragma mark - Internal
 
-- (void)_performEnabledObject {
+- (void)performEnabledObject {
 
 	if ([self.enabledObject isKindOfClass:[UIBarButtonItem class]]) {
 		UIBarButtonItem *item = (UIBarButtonItem *)self.enabledObject;
@@ -208,7 +211,7 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	}
 }
 
-- (UITextField *)_nextTextField:(UITextField *)textField {
+- (UITextField *)nextTextField:(UITextField *)textField {
 	
 	NSUInteger index = [self.textFields indexOfObject:textField];
 	NSArray *end = [self.textFields subarrayWithRange:NSMakeRange(index+1, [self.textFields count] - (index+1))];
