@@ -56,10 +56,10 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	self = [super init];
     if (!self) return nil;
 	
-	_validator = ^BOOL(UITextField *textField, NSString *string) {
+	_validationPredicate = [NSPredicate predicateWithBlock:^BOOL(NSString *string, NSDictionary *bindings) {
 		return [string length] > 0;
-	};
-	
+	}];
+
     return self;
 }
 
@@ -113,8 +113,8 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	[self validate];
 }
 
-- (void)setValidator:(BOOL (^)(UITextField *, NSString *))validator {
-	_validator = validator;
+- (void)setValidationPredicate:(NSPredicate *)validationPredicate {
+	_validationPredicate = validationPredicate;
 	[self validate];
 }
 
@@ -221,7 +221,7 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	__block UITextField *nextTextField;
 	
 	[nextTextFields enumerateObjectsUsingBlock:^(UITextField *otherTextField, NSUInteger idx, BOOL *stop) {
-		if (!self.validator(otherTextField, otherTextField.text)) {
+		if (![self.validationPredicate evaluateWithObject:otherTextField.text]) {
 			nextTextField = otherTextField;
 			*stop = YES;
 		}
@@ -235,7 +235,7 @@ static void* DCTTextFieldValidatorContext = &DCTTextFieldValidatorContext;
 	__block BOOL isValid = YES;
 	
 	[self.requiredTextFields enumerateObjectsUsingBlock:^(UITextField *textField, NSUInteger idx, BOOL *stop) {
-		if (!self.validator(textField, textField.text)) {
+		if (![self.validationPredicate evaluateWithObject:textField.text]) {
 			isValid = NO;
 			*stop = YES;
 		}

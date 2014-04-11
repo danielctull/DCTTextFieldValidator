@@ -96,15 +96,15 @@
 
 
 /**
- *  Block to check if the text in the text field is valid.
+ *  Predicate to check if the text is valid.
  *
  *  When checking the string, you must use the given string and not rely on the one currently in the
  *  textField. The textField's string may be different as this block may be called before the change
  *  happens on the text field.
  *
- *  The default implementation has a block which returns TRUE if the string is not empty;
+ *  The default validationPredicate returns TRUE if the string is not empty.
  */
-@property (nonatomic, copy) BOOL (^validator)(UITextField *textField, NSString *string);
+@property (nonatomic, copy) NSPredicate *validationPredicate;
 
 
 /**
