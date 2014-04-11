@@ -19,9 +19,6 @@
 		2437B6AE15B97CDB00750117 /* DCTTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */; };
 		2437B6AF15B97CDE00750117 /* DCTTextFieldValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */; };
 		2437B6B115B97CF500750117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B6B015B97CF500750117 /* UIKit.framework */; };
-		24E8FECA15B70C9900240A87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494E71591CB410004A76A /* UIKit.framework */; };
-		24E8FECB15B70C9900240A87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
-		24E8FECD15B70C9900240A87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8FECC15B70C9900240A87 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,7 +52,6 @@
 		24B494E71591CB410004A76A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidator.h; sourceTree = "<group>"; };
 		24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidator.m; sourceTree = "<group>"; };
-		24E8FEC815B70C9900240A87 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E8FECC15B70C9900240A87 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -77,16 +73,6 @@
 			files = (
 				2437B6B115B97CF500750117 /* UIKit.framework in Frameworks */,
 				2437B6A315B97C9C00750117 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24E8FEC515B70C9900240A87 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24E8FECA15B70C9900240A87 /* UIKit.framework in Frameworks */,
-				24E8FECB15B70C9900240A87 /* Foundation.framework in Frameworks */,
-				24E8FECD15B70C9900240A87 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +107,6 @@
 		24B494D41591CB410004A76A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24E8FEC815B70C9900240A87 /* Demo.app */,
 				2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */,
 				2420C4C418F853D600677F0A /* DCTTextFieldValidatorDemo.app */,
 			);
@@ -188,23 +173,6 @@
 			productReference = 2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		24E8FEC715B70C9900240A87 /* Demo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24E8FEDC15B70C9900240A87 /* Build configuration list for PBXNativeTarget "Demo" */;
-			buildPhases = (
-				24E8FEC415B70C9900240A87 /* Sources */,
-				24E8FEC515B70C9900240A87 /* Frameworks */,
-				24E8FEC615B70C9900240A87 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Demo;
-			productName = Demo;
-			productReference = 24E8FEC815B70C9900240A87 /* Demo.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,7 +196,6 @@
 			projectRoot = "";
 			targets = (
 				2437B6A115B97C9C00750117 /* DCTTextFieldValidator */,
-				24E8FEC715B70C9900240A87 /* Demo */,
 				2420C4C318F853D600677F0A /* DCTTextFieldValidatorDemo */,
 			);
 		};
@@ -240,13 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2420C4F318F854A300677F0A /* iPhone.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24E8FEC615B70C9900240A87 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,13 +245,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2437B6AE15B97CDB00750117 /* DCTTextFieldValidator.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24E8FEC415B70C9900240A87 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,49 +393,6 @@
 			};
 			name = Release;
 		};
-		24E8FEDA15B70C9900240A87 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LIBRARY = "libc++";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP3.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
-				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		24E8FEDB15B70C9900240A87 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LIBRARY = "libc++";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP3.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
-				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,15 +418,6 @@
 			buildConfigurations = (
 				24B494F61591CB410004A76A /* Debug */,
 				24B494F71591CB410004A76A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24E8FEDC15B70C9900240A87 /* Build configuration list for PBXNativeTarget "Demo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24E8FEDA15B70C9900240A87 /* Debug */,
-				24E8FEDB15B70C9900240A87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
