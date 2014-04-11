@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SJ2-OA-cx8">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mU9-rB-xpR">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="SJ2-OA-cx8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4QQ-y7-5gx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZLr-tP-zec" kind="relationship" relationship="rootViewController" id="foE-Zy-PHB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QC-td-7gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-475" y="-69"/>
+        </scene>
+        <!--Text Field Validator View Controller - DCTTextFieldValidator-->
+        <scene sceneID="DCs-py-2de">
+            <objects>
+                <viewController id="ZLr-tP-zec" customClass="DCTTextFieldValidatorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ppl-Qa-Sq6"/>
+                        <viewControllerLayoutGuide type="bottom" id="sPr-7K-8Rv"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="D6b-nD-jkz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOP-31-smX">
+                                <rect key="frame" x="15" y="79" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-Iv-cM0">
+                                <rect key="frame" x="15" y="124" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9vL-h0-Yvz">
+                                <rect key="frame" x="15" y="169" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppE-ZB-Fxr">
+                                <rect key="frame" x="233" y="214" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="2VS-IA-h64"/>
+                                    <constraint firstAttribute="height" constant="37" id="NQd-fl-72G"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="ZLr-tP-zec" eventType="touchUpInside" id="Lx6-Gh-0IV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="©2014 Daniel Tull" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="abF-P5-0PI">
+                                <rect key="frame" x="111" y="538" width="98" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ppE-ZB-Fxr" firstAttribute="top" secondItem="9vL-h0-Yvz" secondAttribute="bottom" constant="15" id="5VL-jp-cAX"/>
+                            <constraint firstAttribute="trailing" secondItem="kOP-31-smX" secondAttribute="trailing" constant="15" id="5Wn-D0-bof"/>
+                            <constraint firstAttribute="centerX" secondItem="abF-P5-0PI" secondAttribute="centerX" id="6lv-pO-VT2"/>
+                            <constraint firstAttribute="trailing" secondItem="ppE-ZB-Fxr" secondAttribute="trailing" constant="15" id="At4-FT-0BA"/>
+                            <constraint firstItem="9vL-h0-Yvz" firstAttribute="leading" secondItem="D6b-nD-jkz" secondAttribute="leading" constant="15" id="DGx-Wd-sEd"/>
+                            <constraint firstItem="Z0C-Iv-cM0" firstAttribute="top" secondItem="kOP-31-smX" secondAttribute="bottom" constant="15" id="Ktm-gv-pk6"/>
+                            <constraint firstAttribute="trailing" secondItem="Z0C-Iv-cM0" secondAttribute="trailing" constant="15" id="WE5-93-lJw"/>
+                            <constraint firstAttribute="trailing" secondItem="9vL-h0-Yvz" secondAttribute="trailing" constant="15" id="XoB-eg-aVf"/>
+                            <constraint firstItem="9vL-h0-Yvz" firstAttribute="top" secondItem="Z0C-Iv-cM0" secondAttribute="bottom" constant="15" id="d63-3t-dYq"/>
+                            <constraint firstItem="sPr-7K-8Rv" firstAttribute="top" secondItem="abF-P5-0PI" secondAttribute="bottom" constant="15" id="dMG-Vi-2Z8"/>
+                            <constraint firstItem="kOP-31-smX" firstAttribute="top" secondItem="Ppl-Qa-Sq6" secondAttribute="bottom" constant="15" id="jna-Hv-aDf"/>
+                            <constraint firstItem="kOP-31-smX" firstAttribute="leading" secondItem="D6b-nD-jkz" secondAttribute="leading" constant="15" id="npP-xR-ifA"/>
+                            <constraint firstItem="Z0C-Iv-cM0" firstAttribute="leading" secondItem="D6b-nD-jkz" secondAttribute="leading" constant="15" id="pZ3-tz-7hq"/>
+                        </constraints>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DCTTextFieldValidator" id="ak1-ji-j3B"/>
+                    <connections>
+                        <outlet property="validator" destination="r99-UU-dpB" id="XO2-3j-LcT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VjL-sg-4m3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="r99-UU-dpB" customClass="DCTTextFieldValidator">
+                    <connections>
+                        <outlet property="enabledObject" destination="ppE-ZB-Fxr" id="Bgb-2W-IIK"/>
+                        <outletCollection property="textFields" destination="kOP-31-smX" id="A2i-9a-sRX"/>
+                        <outletCollection property="requiredTextFields" destination="kOP-31-smX" id="ri3-1h-iLK"/>
+                        <outletCollection property="textFields" destination="Z0C-Iv-cM0" id="NJE-L9-UU7"/>
+                        <outletCollection property="textFields" destination="9vL-h0-Yvz" id="tg8-ur-iGO"/>
+                        <outletCollection property="requiredTextFields" destination="9vL-h0-Yvz" id="18j-iT-tQx"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-33" y="-69"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
