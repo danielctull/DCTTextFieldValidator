@@ -7,18 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2420C4C518F853D600677F0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
-		2420C4C618F853D600677F0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8FECC15B70C9900240A87 /* CoreGraphics.framework */; };
-		2420C4C718F853D600677F0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B6B015B97CF500750117 /* UIKit.framework */; };
 		2420C4CF18F853D600677F0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4CE18F853D600677F0A /* main.m */; };
 		2420C4D318F853D600677F0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4D218F853D600677F0A /* AppDelegate.m */; };
 		2420C4F118F8544A00677F0A /* DCTTextFieldValidatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4F018F8544A00677F0A /* DCTTextFieldValidatorViewController.m */; };
 		2420C4F318F854A300677F0A /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2420C4F218F854A300677F0A /* iPhone.storyboard */; };
 		2420C4F418F8557700677F0A /* libDCTTextFieldValidator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */; };
-		2437B6A315B97C9C00750117 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B494D61591CB410004A76A /* Foundation.framework */; };
 		2437B6AE15B97CDB00750117 /* DCTTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */; };
 		2437B6AF15B97CDE00750117 /* DCTTextFieldValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */; };
-		2437B6B115B97CF500750117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B6B015B97CF500750117 /* UIKit.framework */; };
+		244DE91F19A9396700A91DC7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244DE91E19A9396700A91DC7 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,24 +31,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2420C4C418F853D600677F0A /* DCTTextFieldValidatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTTextFieldValidatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2420C4CA18F853D600677F0A /* DCTTextFieldValidatorDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTextFieldValidatorDemo-Info.plist"; sourceTree = "<group>"; };
+		2420C4C418F853D600677F0A /* DCTTextFieldValidator Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTTextFieldValidator Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2420C4CA18F853D600677F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2420C4CE18F853D600677F0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2420C4D118F853D600677F0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2420C4D218F853D600677F0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2420C4DB18F853D700677F0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2420C4EF18F8544A00677F0A /* DCTTextFieldValidatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidatorViewController.h; sourceTree = "<group>"; };
 		2420C4F018F8544A00677F0A /* DCTTextFieldValidatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidatorViewController.m; sourceTree = "<group>"; };
 		2420C4F218F854A300677F0A /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTTextFieldValidator.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2437B6B015B97CF500750117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		244F133117FEB2FB0016E94E /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
-		24B494D61591CB410004A76A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		24B494E51591CB410004A76A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		24B494E71591CB410004A76A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		244DE91519A938C600A91DC7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		244DE91619A938C600A91DC7 /* iOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
+		244DE91719A938C600A91DC7 /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
+		244DE91819A938C600A91DC7 /* iOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
+		244DE91919A938C600A91DC7 /* iOS Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Static Library.xcconfig"; sourceTree = "<group>"; };
+		244DE91A19A938C600A91DC7 /* iOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Tests.xcconfig"; sourceTree = "<group>"; };
+		244DE91B19A938C600A91DC7 /* OS X Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "OS X Framework.xcconfig"; sourceTree = "<group>"; };
+		244DE91C19A938C600A91DC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		244DE91D19A938C600A91DC7 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		244DE91E19A9396700A91DC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24B494FE1591CB8D0004A76A /* DCTTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTextFieldValidator.h; sourceTree = "<group>"; };
 		24B494FF1591CB8D0004A76A /* DCTTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTextFieldValidator.m; sourceTree = "<group>"; };
-		24E8FECC15B70C9900240A87 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +60,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2420C4F418F8557700677F0A /* libDCTTextFieldValidator.a in Frameworks */,
-				2420C4C618F853D600677F0A /* CoreGraphics.framework in Frameworks */,
-				2420C4C718F853D600677F0A /* UIKit.framework in Frameworks */,
-				2420C4C518F853D600677F0A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,35 +67,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2437B6B115B97CF500750117 /* UIKit.framework in Frameworks */,
-				2437B6A315B97C9C00750117 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2420C4C818F853D600677F0A /* DCTTextFieldValidatorDemo */ = {
+		2420C4C818F853D600677F0A /* DCTTextFieldValidator Demo */ = {
 			isa = PBXGroup;
 			children = (
 				2420C4D118F853D600677F0A /* AppDelegate.h */,
 				2420C4D218F853D600677F0A /* AppDelegate.m */,
-				2420C4CA18F853D600677F0A /* DCTTextFieldValidatorDemo-Info.plist */,
+				2420C4CA18F853D600677F0A /* Info.plist */,
 				2420C4CE18F853D600677F0A /* main.m */,
 				2420C4EF18F8544A00677F0A /* DCTTextFieldValidatorViewController.h */,
 				2420C4F018F8544A00677F0A /* DCTTextFieldValidatorViewController.m */,
 				2420C4F218F854A300677F0A /* iPhone.storyboard */,
+				244DE91E19A9396700A91DC7 /* Images.xcassets */,
 			);
-			path = DCTTextFieldValidatorDemo;
+			path = "DCTTextFieldValidator Demo";
+			sourceTree = "<group>";
+		};
+		244DE91419A938C600A91DC7 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				244DE91519A938C600A91DC7 /* Debug.xcconfig */,
+				244DE91619A938C600A91DC7 /* iOS Application.xcconfig */,
+				244DE91719A938C600A91DC7 /* iOS Bundle.xcconfig */,
+				244DE91819A938C600A91DC7 /* iOS Framework.xcconfig */,
+				244DE91919A938C600A91DC7 /* iOS Static Library.xcconfig */,
+				244DE91A19A938C600A91DC7 /* iOS Tests.xcconfig */,
+				244DE91B19A938C600A91DC7 /* OS X Framework.xcconfig */,
+				244DE91C19A938C600A91DC7 /* Release.xcconfig */,
+				244DE91D19A938C600A91DC7 /* Shared.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		24B494C81591CB410004A76A = {
 			isa = PBXGroup;
 			children = (
-				244F133117FEB2FB0016E94E /* Architectures.xcconfig */,
 				24B494D81591CB410004A76A /* DCTTextFieldValidator */,
-				2420C4C818F853D600677F0A /* DCTTextFieldValidatorDemo */,
-				24B494D51591CB410004A76A /* Frameworks */,
+				2420C4C818F853D600677F0A /* DCTTextFieldValidator Demo */,
+				244DE91419A938C600A91DC7 /* Configurations */,
 				24B494D41591CB410004A76A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,22 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				2437B6A215B97C9C00750117 /* libDCTTextFieldValidator.a */,
-				2420C4C418F853D600677F0A /* DCTTextFieldValidatorDemo.app */,
+				2420C4C418F853D600677F0A /* DCTTextFieldValidator Demo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		24B494D51591CB410004A76A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2437B6B015B97CF500750117 /* UIKit.framework */,
-				24B494D61591CB410004A76A /* Foundation.framework */,
-				24B494E51591CB410004A76A /* SenTestingKit.framework */,
-				24B494E71591CB410004A76A /* UIKit.framework */,
-				24E8FECC15B70C9900240A87 /* CoreGraphics.framework */,
-				2420C4DB18F853D700677F0A /* XCTest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		24B494D81591CB410004A76A /* DCTTextFieldValidator */ = {
@@ -138,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2420C4C318F853D600677F0A /* DCTTextFieldValidatorDemo */ = {
+		2420C4C318F853D600677F0A /* DCTTextFieldValidator Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2420C4E918F853D700677F0A /* Build configuration list for PBXNativeTarget "DCTTextFieldValidatorDemo" */;
+			buildConfigurationList = 2420C4E918F853D700677F0A /* Build configuration list for PBXNativeTarget "DCTTextFieldValidator Demo" */;
 			buildPhases = (
 				2420C4C018F853D600677F0A /* Sources */,
 				2420C4C118F853D600677F0A /* Frameworks */,
@@ -150,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = DCTTextFieldValidatorDemo;
+			name = "DCTTextFieldValidator Demo";
 			productName = DCTTextFieldValidatorDemo;
-			productReference = 2420C4C418F853D600677F0A /* DCTTextFieldValidatorDemo.app */;
+			productReference = 2420C4C418F853D600677F0A /* DCTTextFieldValidator Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2437B6A115B97C9C00750117 /* DCTTextFieldValidator */ = {
@@ -196,7 +193,7 @@
 			projectRoot = "";
 			targets = (
 				2437B6A115B97C9C00750117 /* DCTTextFieldValidator */,
-				2420C4C318F853D600677F0A /* DCTTextFieldValidatorDemo */,
+				2420C4C318F853D600677F0A /* DCTTextFieldValidator Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2420C4F318F854A300677F0A /* iPhone.storyboard in Resources */,
+				244DE91F19A9396700A91DC7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,156 +251,57 @@
 /* Begin XCBuildConfiguration section */
 		2420C4EA18F853D700677F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE91619A938C600A91DC7 /* iOS Application.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "DCTTextFieldValidatorDemo/DCTTextFieldValidatorDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		2420C4EB18F853D700677F0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE91619A938C600A91DC7 /* iOS Application.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "DCTTextFieldValidatorDemo/DCTTextFieldValidatorDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		2437B6AC15B97C9C00750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244F133117FEB2FB0016E94E /* Architectures.xcconfig */;
+			baseConfigurationReference = 244DE91919A938C600A91DC7 /* iOS Static Library.xcconfig */;
 			buildSettings = {
-				CLANG_CXX_LIBRARY = "libc++";
-				DSTROOT = /tmp/DCTTextFieldValidator.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		2437B6AD15B97C9C00750117 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244F133117FEB2FB0016E94E /* Architectures.xcconfig */;
+			baseConfigurationReference = 244DE91919A938C600A91DC7 /* iOS Static Library.xcconfig */;
 			buildSettings = {
-				CLANG_CXX_LIBRARY = "libc++";
-				DSTROOT = /tmp/DCTTextFieldValidator.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		24B494F61591CB410004A76A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE91519A938C600A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				WARNING_CFLAGS = (
-					"-Weverything",
-					"-Wno-objc-missing-property-synthesis",
-				);
 			};
 			name = Debug;
 		};
 		24B494F71591CB410004A76A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE91519A938C600A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-				WARNING_CFLAGS = (
-					"-Weverything",
-					"-Wno-objc-missing-property-synthesis",
-				);
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2420C4E918F853D700677F0A /* Build configuration list for PBXNativeTarget "DCTTextFieldValidatorDemo" */ = {
+		2420C4E918F853D700677F0A /* Build configuration list for PBXNativeTarget "DCTTextFieldValidator Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2420C4EA18F853D700677F0A /* Debug */,
 				2420C4EB18F853D700677F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2437B6AB15B97C9C00750117 /* Build configuration list for PBXNativeTarget "DCTTextFieldValidator" */ = {
 			isa = XCConfigurationList;

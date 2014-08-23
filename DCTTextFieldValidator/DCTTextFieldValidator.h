@@ -36,6 +36,10 @@
 
 @import UIKit;
 
+//! Project version number and string for DCTTextFieldValidator.
+FOUNDATION_EXPORT double DCTTextFieldValidatorVersionNumber;
+FOUNDATION_EXPORT const unsigned char DCTTextFieldValidatorVersionString[];
+
 /** 
  *  Used to represent a class which has an enabled property, such as UIControl, UIBarItem, UILabel or
  *  UIGestureRecognizer. If I've missed one that you wish to use, just add it to the list at the bottom
