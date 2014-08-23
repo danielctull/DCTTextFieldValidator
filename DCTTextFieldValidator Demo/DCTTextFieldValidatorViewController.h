@@ -7,8 +7,6 @@
 //
 
 @import UIKit;
-#import <DCTTextFieldValidator/DCTTextFieldValidator.h>
 
 @interface DCTTextFieldValidatorViewController : UIViewController
-
 @end
