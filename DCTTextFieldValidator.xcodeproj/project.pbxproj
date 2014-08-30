@@ -407,7 +407,7 @@
 		};
 		24B494F71591CB410004A76A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE91519A938C600A91DC7 /* Debug.xcconfig */;
+			baseConfigurationReference = 244DE91C19A938C600A91DC7 /* Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -440,6 +440,7 @@
 				244DE93A19A93A1400A91DC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24B494CD1591CB410004A76A /* Build configuration list for PBXProject "DCTTextFieldValidator" */ = {
 			isa = XCConfigurationList;
