@@ -243,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
 					244DE92719A93A1400A91DC7 = {
@@ -402,6 +402,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE91519A938C600A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
