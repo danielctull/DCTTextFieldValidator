@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2400A7991F7F914000600369 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2400A7981F7F914000600369 /* Default-568h@2x.png */; };
 		2420C4CF18F853D600677F0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4CE18F853D600677F0A /* main.m */; };
 		2420C4D318F853D600677F0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4D218F853D600677F0A /* AppDelegate.m */; };
 		2420C4F118F8544A00677F0A /* DCTTextFieldValidatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2420C4F018F8544A00677F0A /* DCTTextFieldValidatorViewController.m */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2400A7981F7F914000600369 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2420C4C418F853D600677F0A /* DCTTextFieldValidator Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTTextFieldValidator Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2420C4CA18F853D600677F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2420C4CE18F853D600677F0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		24B494C81591CB410004A76A = {
 			isa = PBXGroup;
 			children = (
+				2400A7981F7F914000600369 /* Default-568h@2x.png */,
 				24B494D81591CB410004A76A /* DCTTextFieldValidator */,
 				2420C4C818F853D600677F0A /* DCTTextFieldValidator Demo */,
 				24CCFF7E1D9EA76A00228331 /* Configurations */,
@@ -344,6 +347,7 @@
 			files = (
 				2420C4F318F854A300677F0A /* iPhone.storyboard in Resources */,
 				244DE91F19A9396700A91DC7 /* Images.xcassets in Resources */,
+				2400A7991F7F914000600369 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
