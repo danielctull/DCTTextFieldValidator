@@ -91,7 +91,7 @@ FOUNDATION_EXPORT const unsigned char DCTTextFieldValidatorVersionString[];
 /**
  *  This block will get called when the text fields are valid and the return key on the keyboard is tapped.
  */
-@property (nonatomic, copy) void (^returnHandler)();
+@property (nonatomic, copy) void (^returnHandler)(void);
 
 /**
  *  A block that gets called when the validity of the text fields as a whole changes.
